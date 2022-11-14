@@ -7,12 +7,14 @@ contract Tickets{
     address public owner = msg.sender;
     struct Ticket{
         uint price;
+        uint id;
         address owner;
     }
 
     Ticket[Total_ticket] public tickets;
     constructor(){
         for (uint i = 0; i < Total_ticket; i++) {
+            tickets[i].id = i;
             tickets[i].price = 1 ether;
             tickets[i].owner = address(0x0);
         }
